@@ -19,16 +19,17 @@
 
 "Interface for reading binary IGOR files."
 
-__version__ = "0.3.2"
+from logging import DEBUG, INFO, getLogger, Formatter, StreamHandler
 
 __all__ = ("__version__",)
 
-import logging
+__version__ = "0.3.2"
 
 
-LOG = logging.getLogger("igor")
-LOG.setLevel(logging.ERROR)
-LOG.addHandler(logging.StreamHandler())
-LOG.handlers[-1].setFormatter(
-    logging.Formatter("%(name)s - %(levelname)s - %(message)s")
-)
+LOGLEVELS = (DEBUG, INFO)
+LOGLEVEL = LOGLEVELS[1]
+LOG = getLogger("igor")
+LOG.setLevel(LOGLEVEL)
+LOG.addHandler(StreamHandler())
+formatter = Formatter("%(name)s - %(levelname)s - %(message)s")
+LOG.handlers[-1].setFormatter(formatter)
