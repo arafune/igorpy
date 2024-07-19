@@ -28,4 +28,4 @@ allow-direct-references = true
 ignore_missing_imports = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/igorpy"]
+packages = ["src/igor"]
